@@ -1,0 +1,49 @@
+page-articles {
+    text-align:center;
+    .article-containter {
+        margin-bottom: 30px;
+    }
+
+    .article {
+        margin-bottom:20px;
+        border-bottom: 3px solid #181818;
+        padding-bottom:20px;
+    }
+
+    .article .article-image {
+       
+    }
+
+    .article .article-content {
+        margin-top:10px;
+    }
+
+    .article .article-body {
+        // max-height: 80px;
+        // text-overflow: ellipsis;
+        // overflow: hidden;
+        // display: -webkit-box;
+        // -webkit-line-clamp: 3;
+        // -webkit-box-orient: vertical; 
+        color: #666;
+        line-height: 2rem;
+    }
+
+    p { margin:0 !important; padding: 0 !important; }
+    
+    // .youtube-post {
+    //     max-height: 300px;
+    // }
+
+    // .youtube-preview {
+
+    // }
+
+    // .youtube-text {
+
+    // }
+   .toolbar { height:84px }
+
+   #ad { max-width:300px; height:84px}
+    
+}

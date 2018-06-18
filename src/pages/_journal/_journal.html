@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="_entry == null">Add Entry</ion-title>
+    <ion-title *ngIf="_entry != null">Edit Entry</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="entry" (ngSubmit)="saveEntry()">
+   <ion-segment mode="md" formControlName="type" color="primary">
+      <ion-segment-button value="review">Review</ion-segment-button>
+      <ion-segment-button value="recipe">Recipe</ion-segment-button>
+    </ion-segment>
+
+    <ion-slides class="gallery">
+      <ion-slide (tap)="chooseImage()" *ngIf="entry.value.src == null">
+        <h3 text-center class="add-image">
+          <ion-icon name="ios-image-outline" ></ion-icon><br>
+          Tap to add a picture
+        </h3>
+      </ion-slide>
+      <ion-slide (tap)="chooseImage()" *ngIf="entry.value.src != null">
+        <img src="{{entry.value.src}}" />
+      </ion-slide>
+    </ion-slides>
+    <!--<div>
+      <img *ngIf="image==true" class="entry-img" src="{{entry.value.src}}" />
+      <img button *ngIf="image==false" class="entry-img" src="https://cdn2.iconfinder.com/data/icons/lightly-icons/30/add-480.png"/>
+    </div>-->
+
+    <ion-list>  
+      <ion-item>
+        <ion-label color="primary" floating>Title</ion-label>
+        <ion-input formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Description</ion-label>
+        <ion-textarea formControlName="description" class="desc" rows="3"></ion-textarea>
+      </ion-item>
+      <rating formControlName="rating" 
+          readOnly="false" 
+          max="5" 
+          emptyStarIconName="star-outline" 
+          halfStarIconName="star-half" 
+          starIconName="star" 
+          nullable="false" >
+      </rating>
+      <!--<ion-item (tap)=getLoc() text-center>
+        <ion-icon name="pin"></ion-icon>
+        <a> Set Location </a>
+      </ion-item>-->
+      </ion-list>
+      <button ion-button full submit [disabled]="!entry.valid"><ion-icon name="checkmark"></ion-icon>&nbsp;Save Entry</button>
+      <button ion-button full (tap)="deleteEntry()" *ngIf="_entry != null" color="danger"><ion-icon name="trash"></ion-icon>&nbsp;Delete</button>
+
+  </form>
+
+</ion-content>
+

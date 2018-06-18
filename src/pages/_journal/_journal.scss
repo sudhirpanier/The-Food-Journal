@@ -1,0 +1,47 @@
+page-njournal {
+    //Star Ratings
+    ul {
+        position:relative;
+
+        padding:10px;
+        
+        &.rating li {
+            padding: 5px 10px !important;
+            background: none;
+            color: #FFCA28;
+        
+            ion-icon {
+            font-size: 20px;
+            }
+        }
+    }
+
+    .entry-img{
+        padding: 5% 5%;
+        height:100%;
+        width:100%;
+        overflow:hidden;
+    }
+
+    .gallery {
+        background:#fff;
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+    .add-image {
+        padding: 40px;
+    }
+
+    .add-image ion-icon {
+        font-size: 54px;
+    }
+
+    .desc{
+        display:inline-block;
+        min-height:30px;
+        width: 100%;
+    }
+    
+
+    
+}

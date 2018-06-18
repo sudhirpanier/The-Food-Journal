@@ -1,0 +1,68 @@
+<ion-header>
+
+    <ion-toolbar class="tool">
+      <div class="inside-tool">
+      <ion-searchbar (ionInput)="searchEntries($event)" color="primary" class="less-padding shorter-bar">
+      </ion-searchbar>
+      <ion-icon name="list" class="sort-show" (tap)="showSearchBar()"></ion-icon>
+      </div>
+    </ion-toolbar>
+
+    <ul class="list-sorter" *ngIf="showSearch == true">
+
+      <div class="sort">
+      <li (tap)="sort('rating')"><ion-icon name="star-half"></ion-icon>&nbsp; Ratings <ion-icon name="ios-arrow-down-outline" *ngIf="column == 'rating' && direction =='desc'"></ion-icon><ion-icon name="ios-arrow-up-outline" *ngIf="column == 'rating' && direction =='asc'"></ion-icon></li>
+      <li (tap)="sort('date')"><ion-icon name="calendar"></ion-icon>&nbsp;Date <ion-icon name="ios-arrow-down-outline" *ngIf="column == 'date' && direction =='desc'"></ion-icon><ion-icon name="ios-arrow-up-outline" *ngIf="column == 'date' && direction =='asc'"></ion-icon></li>
+      <li (tap)="toggleType()">
+        Type: {{ type }}
+      </li>
+      </div>
+    </ul>
+
+    <button ion-button full (tap)="addEntry()" class="text-bold add-entry less-padding">
+      <ion-icon name="md-add-circle"></ion-icon>&nbsp;Add A Journal Entry
+    </button> 
+
+</ion-header>
+
+<ion-content padding (tap)="closeKeyboard()">
+  <div text-center *ngIf="entries.length == 0" margin-top>
+    <h3 class="text-thin">Add your first journal entry above!</h3>
+    <p>Store your favourite restaurants or recipes here so you can always refer back to them.</p>
+  </div>
+  <div *ngFor="let entry of entries">
+  <ion-card class="entry">
+    <div class="entry-type">{{ entry.type }}</div>
+    <img src="{{ entry.src }}" *ngIf="entry.src!=null || entry.src!=''"/>
+    <ion-card-content>
+      <ion-card-title class="text-bold">
+        {{ entry.title }}
+      </ion-card-title>
+      <p>
+        {{ entry.description }}
+      </p>
+    </ion-card-content>
+   
+    <ion-item>
+      <!-- Rating -->
+      <ion-icon name="star" isActive="{{ (entry.rating > 0) ? 'true': 'false' }}"></ion-icon>
+      <ion-icon name="star" isActive="{{ (entry.rating > 1) ? 'true': 'false' }}"></ion-icon>
+      <ion-icon name="star" isActive="{{ (entry.rating > 2) ? 'true': 'false' }}"></ion-icon>
+      <ion-icon name="star" isActive="{{ (entry.rating > 3) ? 'true': 'false' }}"></ion-icon>
+      <ion-icon name="star" isActive="{{ (entry.rating > 4) ? 'true': 'false' }}"></ion-icon>
+      
+      <button ion-button outline item-right icon-left (tap)="share(entry.description, entry.src)">
+          <ion-icon name="people"></ion-icon>
+          Share
+      </button>
+      
+      <button ion-button outline item-right icon-left (tap)="editEntry(entry)">
+          <ion-icon name="brush"></ion-icon>
+          Edit
+      </button>
+
+    </ion-item>
+
+  </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,11 @@
+*~
+*.log
+.sass-cache/
+/platforms/
+/www/
+
+# Not sure about the following, but my IDE flags them as "not used"
+*.sw[mnpcod]
+*.tmp
+*.tmp.*
+log.txt

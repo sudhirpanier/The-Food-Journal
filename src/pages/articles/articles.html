@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <div *ngFor="let ad of ads" (tap)="openAd(ad)">
+      <a href="{{ ad.title.rendered }}"><img id="ad" src="{{ ad.featured_image_thumbnail_url }}"></a>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="article clearfix" *ngFor="let article of articles"  (tap)="openExternal(article)">
+    <div class="article-image">
+      <img src="{{ article.featured_image_thumbnail_url }}"/>
+    </div>
+    <div class="article-content">
+      <h5 class="article-title text-bold" [innerHTML]="article.title.rendered"></h5>
+      <p class="article-body" no-padding no-margin [innerHTML]="article.excerpt.rendered"></p>
+    </div>
+  </div>
+</ion-content>

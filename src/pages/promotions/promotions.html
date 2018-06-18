@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <div *ngFor="let ad of ads" (tap)="openAd(ad)">
+      <a href="{{ ad.title.rendered }}"><img id="ad"src="{{ ad.featured_image_thumbnail_url }}"></a>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card *ngFor="let promotion of promotions">
+    <img style="text-align:center;" src="{{ promotion.featured_image_thumbnail_url }}"/>
+    <div class="bg-overlay"></div>
+    <div class="card-content">
+      <div class="card-title"[innerHTML]="promotion.title.rendered"></div>
+      <div class="card-subtitle" [innerHTML]="promotion.excerpt.rendered"></div>
+    </div>
+  </ion-card>
+</ion-content>

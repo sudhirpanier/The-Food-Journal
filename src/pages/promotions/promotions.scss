@@ -1,0 +1,39 @@
+page-promotions {
+  text-align: center;
+ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%)
+  }
+
+  .card-title {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 0px 5px;
+  }
+
+  .card-subtitle {
+    font-size: 0.7em;
+    color: #fff;
+    text-align: center;
+    padding: 15px 15px 0px 15px;
+  }
+
+.bg-overlay {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  p { color: #fff !important; font-size: 11px !important; }
+  .toolbar { height:84px }
+
+  #ad { max-width:300px; height:84px}
+}

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <div *ngFor="let ad of ads" (tap)="openAd(ad)">
+      <a href="{{ ad.title.rendered }}"><img id="ad" src="{{ ad.featured_image_thumbnail_url }}"></a>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="contest clearfix" *ngFor="let contest of contests" (tap)="typeformTest(contest)">
+    <div class="contest-image">
+      <img class="round-img" src="{{ contest.featured_image_thumbnail_url }}"/>
+    </div>
+    <div class="contest-content">
+      <h5  class="contest-title text-bold" [innerHTML]="contest.title.rendered"></h5>
+      <p class="contest-body" no-padding no-margin [innerHTML]="contest.excerpt.rendered"></p>
+    </div>
+  </div>
+</ion-content>
